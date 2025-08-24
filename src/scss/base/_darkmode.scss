@@ -1,0 +1,39 @@
+@use 'base/variables';
+.dark-mode{
+    background-color: darken(variables.$grisOscuro, 10%);
+    p {
+        color: variables.$blanco;
+    }
+    a,h1,h2,h3,h4{
+        color: variables.$gris;
+    }
+
+    .anuncio, .resumen-propiedad{
+        background-color: variables.$grisOscuro;
+        border: 1px solid variables.$grisOscuro;
+        margin-bottom: 2rem ;
+
+        .precio{
+            color: variables.$verde;
+        }
+        .icono{
+            filter: invert(100%);
+        }
+    }
+
+    .texto-nosotros {
+        color: variables.$gris;
+    }
+
+    .formulario{
+        label,legend, p{
+            color: variables.$gris;
+        }
+        input:not([type="submit"]),textarea, select{
+            background-color: variables.$grisOscuro;
+            border: 1px solid variables.$grisOscuro;
+            color: variables.$gris;
+        }
+    }
+
+}

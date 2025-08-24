@@ -1,0 +1,22 @@
+@use 'base/variables';
+
+.footer {
+    padding: variables.$separacion/2 0;
+    background-color: variables.$grisOscuro;
+    margin-bottom: 0;
+
+    .contenedor-footer {
+        padding-top: variables.$separacion/2;
+    }
+
+    .navegacion {
+        visibility: visible;
+        opacity: 1;
+        height: auto;
+    }
+
+    .copyright {
+        color: variables.$blanco;
+        text-align: center;
+    }
+}
