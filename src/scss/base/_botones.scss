@@ -10,5 +10,16 @@
 }
 
 .boton-verde {
-    @include mixins.boton(variables.$verde, inline);
+    @include mixins.boton(variables.$verde, inline-block);
+
+
+}
+
+.boton-rojo-block{
+    @include mixins.boton(variables.$rojo, block);
+    width: 100%;
+}
+
+.boton-verde-block{
+    @include mixins.boton(variables.$amarillo, block);
 }

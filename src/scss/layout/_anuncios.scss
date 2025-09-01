@@ -11,13 +11,22 @@
 .anuncio{
     background-color: lighten(variables.$gris,  5);
     border: 1px solid darken( variables.$grisOscuro,  10);
+    width: 40rem;
 
     .contenido-anuncio {
         padding: 2rem;
     }
 
     h3,p {
-        margin: 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 4;       /* Límite de 4 líneas */
+    -webkit-box-orient: vertical;  
+    overflow: hidden;            /* Oculta el texto que se pasa de las 4 líneas */
+
+    /* 👇 ESTA ES LA LÍNEA QUE NECESITAS AÑADIR 👇 */
+    overflow-wrap: break-word; /* Corta palabras largas para evitar desbordamiento */
+
+
     }
 }
 .precio{

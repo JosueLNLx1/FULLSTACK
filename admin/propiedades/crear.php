@@ -1,5 +1,11 @@
 <?php
     // base de datos
+
+    require '../../includes/funciones.php';
+    $auth = estaAutenticado();
+    if(!$auth){
+        header("Location: /");
+    }
     include("../../includes/config/database.php");
     $db = conectarDB();
 
@@ -49,6 +55,7 @@
         if(strlen($descripcion) < 50){
             $errores[] = "La descripción es obligatoria y debe tener al menos 50 caracteres";
         }
+            //crear Carpeta
 
         if(!$habitaciones){
             $errores[] = "El número de habitaciones es obligatorio";
@@ -90,14 +97,14 @@
             $nombreImagen = md5(uniqid(rand(), true)).".jpg";
             var_dump($nombreImagen);
 
-            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes.$nombreImagen.".jpg");
+            move_uploaded_file($imagen['tmp_name'], $carpetaImagenes.$nombreImagen);
             
             $query = "INSERT INTO propiedades(titulo, precio, descripcion, habitaciones, wc, estacionamiento, vendedores_id, imagen) VALUES ('$titulo', '$precio', '$descripcion', '$habitaciones', '$wc', '$estacionamientos', '$vendedor_id', '$nombreImagen')";
             // echo $query;
             $result = mysqli_query($db,$query);
 
             if($result){
-                header('Location: /admin');
+                header('Location: /admin?resultado=1');
             }
         }
 
@@ -161,5 +168,9 @@
     </main>
 
 <?php
+
+    mysqli_close($db);
+
     incluirTemplate('footer');
+
 ?>
