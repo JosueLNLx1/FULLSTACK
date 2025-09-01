@@ -1,0 +1,12 @@
+@use "../base/variables";
+.alerta{
+    padding: 0.5rem;
+    text-align: center;
+    color: variables.$blanco;
+    font-weight: variables.$bold;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    &.error{
+        background-color: variables.$rojo;
+    }
+}
